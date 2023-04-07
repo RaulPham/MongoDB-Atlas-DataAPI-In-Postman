@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "e33397ea-e08a-4ef4-be02-ed8522ae7488",
+		"name": "MongoDB Data API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert Document",
+			"_postman_id": "331267ca-6d88-4d35-86bb-a3a2daf76cde",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"dataSource\": \"{{dataSource}}\",\n      \"database\": \"{{database}}\",\n      \"collection\": \"{{collection}}\",\n      \"document\": {\n        \"name\": \"John Doe\",\n        \"age\": 42\n      }\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/insertOne",
+				"description": "Using the `/insertOne` endpoint, you can add a document to a collection. Use the `document` property in the request body to specify the document that should be created."
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Multiple Documents",
+			"_postman_id": "0ff75192-4bb0-4e20-9d01-766fb9d93867",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSource\": \"{{dataSouce}}\",\n    \"database\": \"{{database}}\",\n    \"collection\": \"{{collection}}\",\n    \"documents\": [{\n        \"name\": \"John Doe\",\n        \"age\": 42\n        },{\n        \"name\": \"Jane Doe\",\n        \"age\": 37\n        },{\n        \"name\": \"Joe Doe\",\n        \"age\": 35\n    }]\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/insertMany"
+			},
+			"response": []
+		},
+		{
+			"name": "Find Document",
+			"_postman_id": "2b5a4ee4-f190-4d66-89be-0926be4ff334",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSource\": \"{{dataSource}}\",\n    \"database\": \"{{database}}\",\n    \"collection\": \"{{collection}}\",\n    \"filter\": { \"name\": \"John Doe\" }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/findOne"
+			},
+			"response": []
+		},
+		{
+			"name": "Find Multiple Document",
+			"_postman_id": "2ae40169-23f4-4c84-8912-0b9615d9dea6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSource\": \"{{dataSource}}\",\n    \"database\": \"{{database}}\",\n    \"collection\": \"{{collection}}\",\n    \"filter\": { \"age\": { \"$lt\": 40 } }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/findOne"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Document",
+			"_postman_id": "b9722cdc-a4c7-4f28-8082-abe754bab13e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSource\": \"{{dataSource}}\",\n    \"database\": \"{{database}}\",\n    \"collection\": \"{{collection}}\",\n    \"filter\": { \"name\": \"John Doe\" }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/deleteOne"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Multiple Document",
+			"_postman_id": "20a2fa16-5a0a-43c2-9c4b-9237a46e5ad3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSource\": \"{{dataSource}}\",\n    \"database\": \"{{database}}\",\n    \"collection\": \"{{collection}}\",\n    \"filter\": {}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/deleteOne"
+			},
+			"response": []
+		},
+		{
+			"name": "Run Aggregation Pipeline",
+			"_postman_id": "738f91f7-2666-4ad6-899d-db2451681f9b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "*",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSource\": \"{{dataSource}}\",\n    \"database\": \"{{database}}\",\n    \"collection\": \"{{collection}}\",\n    \"pipeline\": [\n        {\n            \"$sort\": { \"age\": 1 }\n        },\n        {\n            \"$limit\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "{{urlEndpoint}}/action/aggregate"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "39e3d236-3e4b-4c8f-a179-eea93c90f653",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "643eaef9-05ae-4ffd-b93f-19eab362a432",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4ec77461-d11b-4cfc-9f28-2106059f58e8",
+			"key": "urlEndpoint",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "3814ac02-141b-4868-b667-6b4c52a0e924",
+			"key": "apiKey",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "0730f8a9-4969-458e-8f0c-df60841ed50c",
+			"key": "dataSource",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "b628db29-8954-4c1d-8bc8-ba2c52da3973",
+			"key": "database",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "bc99f044-241f-446f-aacb-1d88580b3a45",
+			"key": "collection",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
